@@ -153,10 +153,34 @@ const testimonials = [
 ] as const
 
 const services = [
-  { name: 'General Consultation', duration: '30 min', price: '$90', tone: 'teal' as const },
-  { name: 'Follow Up Visit', duration: '15 min', price: '$45', tone: 'blue' as const },
-  { name: 'Cardiology Review', duration: '50 min', price: '$140', tone: 'rose' as const },
-  { name: 'Men\'s Premium', duration: '50 min', price: '$0', tone: 'emerald' as const },
+  {
+    name: 'General Consultation',
+    duration: '30 min',
+    price: '$90',
+    tone: 'teal' as const,
+    image: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80&auto=format&fit=crop',
+  },
+  {
+    name: 'Follow Up Visit',
+    duration: '15 min',
+    price: '$45',
+    tone: 'blue' as const,
+    image: 'https://images.unsplash.com/photo-1631815590058-860e4f83c1e8?w=800&q=80&auto=format&fit=crop',
+  },
+  {
+    name: 'Cardiology Review',
+    duration: '50 min',
+    price: '$140',
+    tone: 'rose' as const,
+    image: 'https://images.unsplash.com/photo-1690787628851-d36e285c29b0?w=800&q=80&auto=format&fit=crop',
+  },
+  {
+    name: 'Men\'s Premium',
+    duration: '50 min',
+    price: '$0',
+    tone: 'emerald' as const,
+    image: 'https://images.unsplash.com/photo-1758691461935-202e2ef6b69f?w=800&q=80&auto=format&fit=crop',
+  },
 ]
 
 const widgetSteps = [
@@ -357,6 +381,40 @@ export function MarketingHomeScreen() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {features.map((feature) => (
               <FeatureCard key={feature.title} icon={feature.icon} title={feature.title} body={feature.body} tone={feature.tone} />
+            ))}
+          </div>
+        </section>
+
+        <section id="programs" className="mx-auto w-full max-w-7xl px-6 pb-24 lg:px-8">
+          <div className="max-w-xl">
+            <SectionEyebrow>Programs</SectionEyebrow>
+            <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-[var(--text-strong)]">
+              What patients book through the widget
+            </h2>
+            <p className="mt-3 text-[var(--text-muted)]">
+              Clara presents these visits by name, duration, and price — no guesswork for the patient.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+            {services.map((service) => (
+              <div
+                key={service.name}
+                className="overflow-hidden rounded-[24px] border border-[var(--border-soft)] bg-white/78 shadow-[0_16px_40px_-36px_rgba(15,33,41,0.45)] backdrop-blur-sm"
+              >
+                <div className="aspect-video overflow-hidden bg-[var(--brand-soft)]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={service.image} alt={service.name} className="h-full w-full object-cover" loading="lazy" />
+                </div>
+                <div className="p-5">
+                  <div className="font-display text-lg font-semibold tracking-[-0.02em] text-[var(--text-strong)]">
+                    {service.name}
+                  </div>
+                  <div className="mt-1 flex items-center justify-between text-sm text-[var(--text-muted)]">
+                    <span>{service.duration}</span>
+                    <span className="font-semibold text-[var(--brand-strong)]">{service.price}</span>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </section>
@@ -620,6 +678,14 @@ export function MarketingHomeScreen() {
             <div className="mt-3.5 flex flex-col gap-2.5 text-sm">
               <a href="#portal" className="hover:text-[var(--brand-strong)]">Patient portal</a>
               <a href="#faq" className="hover:text-[var(--brand-strong)]">FAQ</a>
+              <a
+                href="https://claude.ai/code/artifact/f96bfb2d-e31f-476c-8e61-094744965249"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[var(--brand-strong)]"
+              >
+                User Guide
+              </a>
               <a href="/login" className="hover:text-[var(--brand-strong)]">Sign in</a>
             </div>
           </div>
