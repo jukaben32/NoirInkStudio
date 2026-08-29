@@ -30,6 +30,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# ad-hoc verification screenshots (Playwright CLI etc.)
+/*.png
+
 # local env files (never commit real secrets — use .env.example as the template)
 .env
 .env.local
