@@ -43,6 +43,7 @@ import {
 } from 'lucide-react'
 
 import { PortalLoginForm } from '@/components/portal/PortalLoginForm'
+import { MarketingMobileNav } from './MarketingMobileNav'
 import { cn } from '@/lib/utils'
 
 import {
@@ -172,14 +173,14 @@ const services = [
     duration: '180 min',
     price: 'From $180',
     tone: 'rose' as const,
-    image: 'https://images.unsplash.com/photo-1590246814883-57c511e76523?w=800&q=80&auto=format&fit=crop',
+    image: 'https://images.pexels.com/photos/35645871/pexels-photo-35645871.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     name: 'Flash Tattoo',
     duration: '45 min',
     price: '$100',
     tone: 'emerald' as const,
-    image: 'https://images.unsplash.com/photo-1590419690008-905895e8fe0d?w=800&q=80&auto=format&fit=crop',
+    image: 'https://images.pexels.com/photos/2126124/pexels-photo-2126124.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
 ]
 
@@ -295,12 +296,15 @@ export function MarketingHomeScreen() {
             <a href="#faq" className="transition hover:text-[var(--brand-strong)]">FAQ</a>
           </nav>
           <div className="flex items-center gap-3">
-            <ButtonLink href="/login" variant="secondary" icon="none">
-              Sign in
-            </ButtonLink>
+            <div className="hidden sm:block">
+              <ButtonLink href="/login" variant="secondary" icon="none">
+                Sign in
+              </ButtonLink>
+            </div>
             <ButtonLink href="/signup" icon="calendar">
               Start free trial
             </ButtonLink>
+            <MarketingMobileNav />
           </div>
         </div>
       </header>
