@@ -36,7 +36,7 @@ import { SOCIAL_PLATFORMS } from './socialLinks'
 const TEMPLATE_CHOICES = [
   { id: 'serenity', name: 'Serenity', tagline: 'Soft gradients and calm trust' },
   { id: 'pulse', name: 'Pulse', tagline: 'Premium contrast and punchy CTA' },
-  { id: 'clarity', name: 'Clarity', tagline: 'Minimal, clean, and clinical' },
+  { id: 'clarity', name: 'Clarity', tagline: 'Minimal, clean, and gallery-quiet' },
 ] as const
 
 const FONT_CHOICES = [
@@ -114,8 +114,8 @@ function createTestimonial(businessId: string): WebsiteTestimonial {
   return {
     id: createId(),
     businessId,
-    quote: 'Patient feedback goes here.',
-    authorName: 'Patient Name',
+    quote: 'Client feedback goes here.',
+    authorName: 'Client Name',
     authorRole: null,
     rating: 5,
     sortOrder: 0,
@@ -609,7 +609,7 @@ export function WebsiteEditor({
                 label="Logo - 1:1 recommended"
                 url={website.logoUrl}
                 busy={logoBusy}
-                hint="Shown in the site header next to the clinic name."
+                hint="Shown in the site header next to the studio name."
                 onPick={(file) => void handleLogoUpload(file)}
                 onClear={() => patchWebsite({ logoUrl: null })}
               />
@@ -708,7 +708,7 @@ export function WebsiteEditor({
                   value={website.heroHeadline ?? ''}
                   onChange={(e) => patchWebsite({ heroHeadline: e.target.value })}
                   className="input-field w-full"
-                  placeholder="Healthcare that feels premium and human"
+                  placeholder="Custom ink that feels premium and personal"
                 />
               </Field>
 
@@ -754,7 +754,7 @@ export function WebsiteEditor({
                   onChange={(e) => patchWebsite({ aboutStory: e.target.value })}
                   className="input-field w-full"
                   rows={4}
-                  placeholder="Tell the clinic story and how the team helps patients."
+                  placeholder="Tell the studio's story and how the team helps clients."
                 />
               </Field>
 
@@ -762,7 +762,7 @@ export function WebsiteEditor({
                 label="About photo"
                 url={website.aboutPhotoUrl}
                 busy={aboutBusy}
-                hint="This can be the doctor, clinic exterior, or office team."
+                hint="This can be the lead artist, studio interior, or team photo."
                 onPick={(file) => void handleAboutUpload(file)}
                 onClear={() => patchWebsite({ aboutPhotoUrl: null })}
               />
@@ -776,7 +776,7 @@ export function WebsiteEditor({
                     className="input-field w-full"
                   />
                 </Field>
-                <Field label="Patients served">
+                <Field label="Clients served">
                   <input
                     type="number"
                     value={website.patientsServed ?? ''}
@@ -907,7 +907,7 @@ export function WebsiteEditor({
             </div>
           </SectionCard>
 
-          <SectionCard title="Team" subtitle="Clinician and staff cards shown in the live site." icon={UsersRound}>
+          <SectionCard title="Team" subtitle="Artist and staff cards shown in the live site." icon={UsersRound}>
             <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="text-xs text-[var(--text-muted)]">{teamMembers.length} team members</p>
               <button type="button" onClick={addTeamMember} className="btn-secondary !px-3 !py-2 !text-xs">
@@ -977,7 +977,7 @@ export function WebsiteEditor({
             </div>
           </SectionCard>
 
-          <SectionCard title="Testimonials" subtitle="Short patient quotes and star ratings." icon={Quote}>
+          <SectionCard title="Testimonials" subtitle="Short client quotes and star ratings." icon={Quote}>
             <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="text-xs text-[var(--text-muted)]">{testimonials.length} testimonials</p>
               <button type="button" onClick={addTestimonial} className="btn-secondary !px-3 !py-2 !text-xs">

@@ -78,7 +78,7 @@ const CATEGORY_ACCENTS: Record<KnowledgeTemplateCategoryKey | 'all', ChipAccent>
     border: 'rgba(19, 122, 114, 0.2)',
     text: 'var(--brand-strong)',
   },
-  'insurance-billing': {
+  'deposits-pricing': {
     fill: 'rgba(37, 99, 235, 0.08)',
     border: 'rgba(37, 99, 235, 0.18)',
     text: '#1d4ed8',
@@ -88,47 +88,47 @@ const CATEGORY_ACCENTS: Record<KnowledgeTemplateCategoryKey | 'all', ChipAccent>
     border: 'rgba(16, 185, 129, 0.18)',
     text: '#047857',
   },
-  'new-patients': {
+  'new-clients': {
     fill: 'rgba(245, 158, 11, 0.1)',
     border: 'rgba(245, 158, 11, 0.2)',
     text: '#b45309',
   },
-  prescriptions: {
+  'age-consent': {
     fill: 'rgba(236, 72, 153, 0.09)',
     border: 'rgba(236, 72, 153, 0.18)',
     text: '#be185d',
   },
-  'test-results': {
+  'aftercare': {
     fill: 'rgba(59, 130, 246, 0.08)',
     border: 'rgba(59, 130, 246, 0.18)',
     text: '#1d4ed8',
   },
-  telehealth: {
+  'cover-ups-reworks': {
     fill: 'rgba(14, 116, 144, 0.08)',
     border: 'rgba(14, 116, 144, 0.18)',
     text: '#0f766e',
   },
-  referrals: {
+  piercing: {
     fill: 'rgba(16, 185, 129, 0.08)',
     border: 'rgba(16, 185, 129, 0.18)',
     text: '#047857',
   },
-  pediatrics: {
+  'hygiene-safety': {
     fill: 'rgba(245, 158, 11, 0.1)',
     border: 'rgba(245, 158, 11, 0.2)',
     text: '#b45309',
   },
-  'mental-health': {
+  'guest-artists': {
     fill: 'rgba(236, 72, 153, 0.09)',
     border: 'rgba(236, 72, 153, 0.18)',
     text: '#be185d',
   },
-  'urgent-care': {
+  cancellations: {
     fill: 'rgba(245, 158, 11, 0.1)',
     border: 'rgba(245, 158, 11, 0.2)',
     text: '#b45309',
   },
-  'privacy-hipaa': {
+  'privacy-policy': {
     fill: 'rgba(16, 33, 41, 0.05)',
     border: 'rgba(16, 33, 41, 0.1)',
     text: 'var(--text-muted)',
@@ -879,17 +879,17 @@ export function KnowledgeManager({
             <div className="max-w-2xl">
               <SectionEyebrow>Knowledge Base</SectionEyebrow>
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[var(--text-strong)] md:text-4xl">
-                Teach Clara the exact answers your patients expect
+                Teach Clara the exact answers your clients expect
               </h2>
               <p className="mt-3 max-w-2xl text-base leading-7 text-[var(--text-muted)]">
-                Add custom articles, browse clinic FAQ templates, and keep archived items recoverable. The active
+                Add custom articles, browse studio FAQ templates, and keep archived items recoverable. The active
                 list below is what the AI agent uses during live calls and chat.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
                 <CategoryChip categoryKey="appointments" label={`${activeDocuments.length} active answers`} />
-                <CategoryChip categoryKey="telehealth" label={`${KNOWLEDGE_TEMPLATE_BANK.length} templates`} />
-                <CategoryChip categoryKey="privacy-hipaa" label={`${archivedDocuments.length} archived`} />
+                <CategoryChip categoryKey="aftercare" label={`${KNOWLEDGE_TEMPLATE_BANK.length} templates`} />
+                <CategoryChip categoryKey="privacy-policy" label={`${archivedDocuments.length} archived`} />
               </div>
 
               <div className="mt-6 flex flex-wrap gap-3">

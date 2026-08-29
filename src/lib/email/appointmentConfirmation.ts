@@ -15,7 +15,7 @@ export function buildAppointmentConfirmationEmail(opts: {
       <tr><td style="padding:8px 0;color:#64748b;">Date and time</td><td style="padding:8px 0;"><strong>${escapeHtml(opts.scheduledAt)}</strong></td></tr>
     </table>
     ${opts.portalUrl ? `<p>You can review your appointment from the portal: <a href="${escapeHtml(opts.portalUrl)}">${escapeHtml(opts.portalUrl)}</a></p>` : ''}
-    <p>If you need to reschedule or cancel, reply to this email or open the patient portal.</p>
+    <p>If you need to reschedule or cancel, reply to this email or open the client portal.</p>
   `
 
   return emailShell('Appointment confirmation', body)

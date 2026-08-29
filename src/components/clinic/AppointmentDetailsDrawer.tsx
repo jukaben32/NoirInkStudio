@@ -415,10 +415,10 @@ export function AppointmentDetailsDrawer({
               </div>
 
               <div className="mt-4 space-y-3 rounded-[22px] border border-[var(--border-soft)] bg-white/78 p-4">
-                <InfoRow label="Full name" value={patient?.name ?? 'Unknown patient'} icon={UserRound} />
+                <InfoRow label="Full name" value={patient?.name ?? 'Unknown client'} icon={UserRound} />
                 <InfoRow label="Phone" value={patient?.phone ?? 'Not on file'} icon={Phone} />
                 <InfoRow label="Email" value={patient?.email ?? 'Not on file'} icon={Mail} />
-                <InfoRow label="Insurance" value={patient?.insuranceProvider ?? 'Self pay'} icon={ShieldAlert} />
+                <InfoRow label="Allergies" value={patient?.allergyNotes ?? 'None noted'} icon={ShieldAlert} />
                 <InfoRow label="Date of birth" value={patient?.dateOfBirth ?? 'Not on file'} icon={CalendarDays} />
                 <InfoRow label="Source" value={APPOINTMENT_SOURCE_LABEL[appointment.source]} icon={ReceiptText} />
               </div>

@@ -21,7 +21,7 @@ export async function GET() {
 
   const patient = await getPortalPatientForAuthUser(supabase, user.id)
   if (!patient) {
-    return apiError('No patient record linked to this account', 404)
+    return apiError('No client record linked to this account', 404)
   }
 
   const admin = createAdminClient()
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
 
   const patient = await getPortalPatientForAuthUser(supabase, user.id)
   if (!patient) {
-    return apiError('No patient record linked to this account', 404)
+    return apiError('No client record linked to this account', 404)
   }
 
   let body: unknown

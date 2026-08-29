@@ -61,7 +61,7 @@ export const patientSchema = z.object({
   phone: z.string().max(40).optional().nullable(),
   dateOfBirth: z.string().optional().nullable(),
   notes: z.string().max(5000).optional().nullable(),
-  insuranceProvider: z.string().max(120).optional().nullable(),
+  allergyNotes: z.string().max(120).optional().nullable(),
   source: z.enum(['ai_call', 'widget_chat', 'manual', 'portal', 'website_form', 'whatsapp']).optional(),
   authUserId: z.string().uuid().optional().nullable(),
 })

@@ -17,15 +17,15 @@ export function buildBusinessAppointmentEmail(opts: {
 }) {
   const eventLabel: Record<typeof opts.event, string> = {
     booked: 'New appointment booked',
-    cancelled: 'Appointment cancelled by patient',
-    reschedule_requested: 'Reschedule requested by patient',
+    cancelled: 'Appointment cancelled by client',
+    reschedule_requested: 'Reschedule requested by client',
   }
 
   const body = `
     <p>Hello ${escapeHtml(opts.businessName)} team,</p>
     <p><strong>${escapeHtml(eventLabel[opts.event])}</strong> - here are the details.</p>
     <table style="width:100%;border-collapse:collapse;margin:20px 0;">
-      <tr><td style="padding:8px 0;color:#64748b;">Patient</td><td style="padding:8px 0;"><strong>${escapeHtml(opts.patientName)}</strong></td></tr>
+      <tr><td style="padding:8px 0;color:#64748b;">Client</td><td style="padding:8px 0;"><strong>${escapeHtml(opts.patientName)}</strong></td></tr>
       ${opts.patientPhone ? `<tr><td style="padding:8px 0;color:#64748b;">Phone</td><td style="padding:8px 0;"><strong>${escapeHtml(opts.patientPhone)}</strong></td></tr>` : ''}
       ${opts.patientEmail ? `<tr><td style="padding:8px 0;color:#64748b;">Email</td><td style="padding:8px 0;"><strong>${escapeHtml(opts.patientEmail)}</strong></td></tr>` : ''}
       <tr><td style="padding:8px 0;color:#64748b;">Service</td><td style="padding:8px 0;"><strong>${escapeHtml(opts.serviceName)}</strong></td></tr>

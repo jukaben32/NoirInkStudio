@@ -57,7 +57,7 @@ function buildSearchText(patient: Patient, appointments: AppointmentWithRelation
     patient.name,
     patient.phone,
     patient.email,
-    patient.insuranceProvider,
+    patient.allergyNotes,
     patient.dateOfBirth,
     patient.notes,
     ...appointments.flatMap((appointment) => [
@@ -325,7 +325,7 @@ function PatientCard({
         <div className="border-t border-[var(--border-soft)] bg-[rgba(16,33,41,0.02)] px-4 py-4">
           <div className="grid gap-3 md:grid-cols-2">
             <InfoTile label="Date of birth" value={row.patient.dateOfBirth ?? 'Not on file'} icon={CalendarDays} />
-            <InfoTile label="Insurance" value={row.patient.insuranceProvider ?? 'No insurance'} icon={ShieldAlert} />
+            <InfoTile label="Allergies" value={row.patient.allergyNotes ?? 'None noted'} icon={ShieldAlert} />
           </div>
 
           <div className="mt-4 overflow-hidden rounded-[22px] border border-[var(--border-soft)] bg-white/76">
@@ -536,7 +536,7 @@ export function PatientsManager({
                 <input
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Search by name, email, phone or insurance..."
+                  placeholder="Search by name, email, phone or allergies..."
                   className="input-field w-full pl-11"
                 />
               </div>

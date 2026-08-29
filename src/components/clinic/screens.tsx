@@ -7,7 +7,7 @@ import {
   ClipboardList,
   CreditCard,
   Database,
-  HeartPulse,
+  Flame,
   LayoutDashboard,
   LifeBuoy,
   LineChart,
@@ -67,36 +67,36 @@ import {
 type ClinicTone = 'teal' | 'emerald' | 'blue' | 'amber' | 'rose' | 'slate'
 
 const upcomingAppointments = [
-  { name: 'Md Tajuddin', note: 'General Consultation', tone: 'teal' as const },
-  { name: 'Shakib', note: 'Follow Up Visit', tone: 'blue' as const },
-  { name: 'Just Funny', note: 'General Consultation', tone: 'amber' as const },
-  { name: 'Dault Hussain', note: 'General Consultation', tone: 'rose' as const },
-  { name: 'Amit', note: 'Follow Up Visit', tone: 'emerald' as const },
+  { name: 'Marcus Webb', note: 'Half Sleeve Project', tone: 'teal' as const },
+  { name: 'Priya Anand', note: 'Fine Line Small Piece', tone: 'blue' as const },
+  { name: 'Jonas Reyes', note: 'Design Consultation', tone: 'amber' as const },
+  { name: 'Elena Cruz', note: 'Cover-Up Session', tone: 'rose' as const },
+  { name: 'Théo Laurent', note: 'Touch-Up Session', tone: 'emerald' as const },
 ]
 
 const features = [
   {
     icon: Bot,
     title: 'AI Booking Assistant',
-    body: 'Clara answers patients naturally, books visits, collects details, and hands off to staff when needed.',
+    body: 'Clara answers clients naturally, verifies age, books sessions, collects references, and hands off to staff when needed.',
     tone: 'teal' as const,
   },
   {
     icon: CalendarDays,
     title: 'Smart Calendar',
-    body: 'Drag, confirm, reschedule, and protect the clinic hours without leaving the dashboard.',
+    body: 'Drag, confirm, reschedule, and protect each artist\'s hours without leaving the dashboard.',
     tone: 'blue' as const,
   },
   {
     icon: NotebookText,
-    title: 'Patient CRM',
-    body: 'Keep patient history, notes, booking context, reminders, and portal access in one place.',
+    title: 'Client CRM',
+    body: 'Keep client history, consent forms, reference images, reminders, and portal access in one place.',
     tone: 'emerald' as const,
   },
   {
     icon: Lock,
     title: 'Multi-Tenant Security',
-    body: 'Every clinic is isolated with row-level policies, scoped access, and audit friendly records.',
+    body: 'Every studio is isolated with row-level policies, scoped access, and audit friendly records.',
     tone: 'rose' as const,
   },
   {
@@ -107,8 +107,8 @@ const features = [
   },
   {
     icon: Wallet,
-    title: 'USDC Billing',
-    body: 'Record deposits, track tx hashes, and attach payments directly to appointments.',
+    title: 'Deposit & USDC Billing',
+    body: 'Collect booking deposits, record deposits, track tx hashes, and attach payments directly to sessions.',
     tone: 'teal' as const,
   },
 ] as const
@@ -116,114 +116,114 @@ const features = [
 const workflow = [
   {
     step: '01',
-    title: 'Set up the clinic',
-    body: 'Create the business profile, define services, staff, and availability in a few minutes.',
+    title: 'Set up the studio',
+    body: 'Create the studio profile, define services, artists, and availability in a few minutes.',
     icon: Hospital,
   },
   {
     step: '02',
     title: 'Embed the widget',
-    body: 'Drop one script or iframe into the clinic website and let Clara start booking.',
+    body: 'Drop one script or iframe into the studio website and let Clara start booking.',
     icon: Globe2,
   },
   {
     step: '03',
     title: 'Review the bookings',
-    body: 'Confirm appointments, manage callbacks, send reminders, and capture payments.',
+    body: 'Confirm sessions, manage callbacks, send reminders, and capture deposits.',
     icon: CheckCircle2,
   },
 ] as const
 
 const testimonials = [
   {
-    quote: 'Our front desk feels like it gained another full-time receptionist overnight. The booking flow looks polished and the reminders are on point.',
-    author: 'Dr. Sarah Mitchell',
-    role: 'Family Practice',
+    quote: 'Our front desk feels like it gained another full-time receptionist overnight. The booking flow looks polished and the deposit reminders are on point.',
+    author: 'Mara Voss',
+    role: 'Owner, blackwork & fine line studio',
   },
   {
-    quote: 'The widget feels natural for patients and the dashboard gives us exactly the operational clarity we wanted for a modern clinic.',
-    author: 'Dr. James Park',
-    role: 'Cardiology',
+    quote: 'The widget feels natural for clients and the dashboard gives us exactly the operational clarity we wanted for a busy multi-artist studio.',
+    author: 'Diego Fontes',
+    role: 'Studio manager',
   },
   {
-    quote: 'Setup was fast, the calendar is easy to manage, and the portal gives patients the self-service experience we were missing.',
-    author: 'Dr. Maria Santos',
-    role: 'Dermatology',
+    quote: 'Setup was fast, the calendar is easy to manage per artist, and the portal gives clients the self-service experience we were missing.',
+    author: 'Renée Okafor',
+    role: 'Owner, custom realism studio',
   },
 ] as const
 
 const services = [
   {
-    name: 'General Consultation',
+    name: 'Design Consultation',
     duration: '30 min',
-    price: '$90',
+    price: '$50',
     tone: 'teal' as const,
-    image: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=800&q=80&auto=format&fit=crop',
   },
   {
-    name: 'Follow Up Visit',
-    duration: '15 min',
-    price: '$45',
+    name: 'Fine Line Small Piece',
+    duration: '60 min',
+    price: '$150',
     tone: 'blue' as const,
-    image: 'https://images.unsplash.com/photo-1631815590058-860e4f83c1e8?w=800&q=80&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?w=800&q=80&auto=format&fit=crop',
   },
   {
-    name: 'Cardiology Review',
-    duration: '50 min',
-    price: '$140',
+    name: 'Black & Grey Realism',
+    duration: '180 min',
+    price: 'From $180',
     tone: 'rose' as const,
-    image: 'https://images.unsplash.com/photo-1690787628851-d36e285c29b0?w=800&q=80&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1590246814883-57c511e76523?w=800&q=80&auto=format&fit=crop',
   },
   {
-    name: 'Men\'s Premium',
-    duration: '50 min',
-    price: '$0',
+    name: 'Flash Tattoo',
+    duration: '45 min',
+    price: '$100',
     tone: 'emerald' as const,
-    image: 'https://images.unsplash.com/photo-1758691461935-202e2ef6b69f?w=800&q=80&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1590419690008-905895e8fe0d?w=800&q=80&auto=format&fit=crop',
   },
 ]
 
 const widgetSteps = [
   {
-    title: 'Choose a service',
-    detail: 'The assistant lists the clinic services with duration and pricing.',
+    title: 'Choose a style',
+    detail: 'The assistant lists the studio services with duration and pricing.',
   },
   {
     title: 'Pick a date and time',
-    detail: 'Clara only shows slots that are open in the clinic schedule.',
+    detail: 'Clara only shows slots that are open on your chosen artist\'s schedule.',
   },
   {
     title: 'Add your details',
-    detail: 'Patients enter their name, phone, and optional email in the conversation.',
+    detail: 'Clients enter their name, phone, age confirmation, and optional email in the conversation.',
   },
   {
     title: 'Confirm booking',
-    detail: 'The appointment is saved, confirmed, and the notification pipeline fires.',
+    detail: 'The deposit is collected, the appointment is confirmed, and the notification pipeline fires.',
   },
 ]
 
 const portalTimeline = [
-  { time: 'Today', title: 'General Consultation', description: '4:30 PM with Dr. Harrington', tone: 'teal' as const },
-  { time: 'Tomorrow', title: 'Follow Up Visit', description: 'Payment already processed', tone: 'blue' as const },
-  { time: 'Wed', title: 'Lab Results Review', description: 'Portal message ready', tone: 'emerald' as const },
+  { time: 'Today', title: 'Design Consultation', description: '4:30 PM with Mara', tone: 'teal' as const },
+  { time: 'Tomorrow', title: 'Touch-Up Session', description: 'Deposit already processed', tone: 'blue' as const },
+  { time: 'Wed', title: 'Aftercare Check-In', description: 'Portal message ready', tone: 'emerald' as const },
 ]
 
 const marketingFaqs = [
   {
     q: 'How long does setup take?',
-    a: 'Most clinics are live with services, availability, and the AI voice agent configured in under a week.',
+    a: 'Most studios are live with services, artist availability, and the AI voice agent configured in under a week.',
   },
   {
     q: 'Does the AI agent replace my front desk?',
     a: 'No — it complements it. Clara handles after-hours calls, demand spikes, and repetitive questions, then hands off to your team when needed.',
   },
   {
-    q: 'Can I run more than one clinic from one account?',
-    a: 'Yes. Every location gets its own calendar, services, and dashboard, with row-level isolation between clinics.',
+    q: 'Can I run more than one studio location from one account?',
+    a: 'Yes. Every location gets its own calendar, services, and dashboard, with row-level isolation between studios.',
   },
   {
-    q: 'How is patient data protected?',
-    a: 'Encryption in transit and at rest, scoped role-based access, and audit-friendly records aligned with HIPAA-ready practices.',
+    q: 'How is client data protected?',
+    a: 'Encryption in transit and at rest, scoped role-based access, and audit-friendly records — including consent forms and age verification.',
   },
   {
     q: 'Do I need to install anything?',
@@ -235,13 +235,13 @@ function heroPreview() {
   return (
     <div className="relative">
       <div className="plate-corners relative rounded-[34px] border border-[var(--border-soft)] bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(246,239,230,0.9))] shadow-[0_28px_90px_-56px_rgba(15,33,41,0.48)]">
-        <BrowserFrame title="Clinic dashboard" subtitle="Live bookings, schedules, and patient operations">
+        <BrowserFrame title="Studio dashboard" subtitle="Live bookings, artist schedules, and client operations">
           <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
             <SurfaceCard className="p-5">
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <div className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[var(--text-muted)]">Live dashboard</div>
-                  <div className="mt-1 font-display text-xl font-semibold tracking-[-0.04em] text-[var(--text-strong)]">Good evening, Dr. Harrington</div>
+                  <div className="mt-1 font-display text-xl font-semibold tracking-[-0.04em] text-[var(--text-strong)]">Good evening, Mara</div>
                 </div>
                 <StatusBadge tone="teal">Online</StatusBadge>
               </div>
@@ -252,7 +252,7 @@ function heroPreview() {
             </SurfaceCard>
             <SurfaceCard className="p-5">
               <div className="flex items-center justify-between gap-3">
-                <div className="text-sm font-semibold text-[var(--text-strong)]">Upcoming appointments</div>
+                <div className="text-sm font-semibold text-[var(--text-strong)]">Upcoming sessions</div>
                 <ArrowLink href="/dashboard/appointments">See all</ArrowLink>
               </div>
               <div className="mt-4 space-y-3">
@@ -270,10 +270,10 @@ function heroPreview() {
           </div>
         </BrowserFrame>
       </div>
-      <div className="absolute -bottom-6 -left-6 hidden w-[220px] rounded-[24px] border border-[var(--border-soft)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(236,248,245,0.96))] p-4 shadow-[0_24px_70px_-48px_rgba(15,33,41,0.45)] sm:block">
+      <div className="absolute -bottom-6 -left-6 hidden w-[220px] rounded-[24px] border border-[var(--border-soft)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(241,228,201,0.96))] p-4 shadow-[0_24px_70px_-48px_rgba(28,23,18,0.45)] sm:block">
         <div className="font-display text-[10px] font-semibold uppercase tracking-[0.22em]" style={{ color: 'var(--brand)' }}>Live</div>
         <div className="mt-1 font-display text-2xl font-semibold tracking-[-0.04em] text-[var(--text-strong)]">12,400+</div>
-        <div className="text-xs text-[var(--text-muted)]">patients managed this month</div>
+        <div className="text-xs text-[var(--text-muted)]">clients inked this year</div>
       </div>
     </div>
   )
@@ -307,19 +307,19 @@ export function MarketingHomeScreen() {
 
       <main>
         <section id="producto" className="relative mx-auto mt-6 grid w-full max-w-7xl items-center gap-14 overflow-hidden rounded-[36px] border border-[var(--border-soft)] bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(247,240,231,0.92))] px-6 py-16 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(19,122,114,0.11),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(236,170,93,0.12),transparent_26%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(176,141,87,0.14),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(122,46,46,0.08),transparent_26%)]" />
           <div className="relative max-w-xl">
-            <SectionEyebrow>AI medical receptionist</SectionEyebrow>
+            <SectionEyebrow>AI studio receptionist</SectionEyebrow>
             <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-white/72 px-3.5 py-1.5 text-[11px] font-semibold text-[var(--text-strong)] backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
-              Voice, calendar, portal, and billing in one flow
+              Voice, calendar, portal, and deposits in one flow
             </div>
-            <h1 className="mt-6 max-w-[12ch] font-display text-5xl font-semibold leading-[0.98] tracking-[-0.06em] text-[var(--text-strong)] sm:text-6xl">
-              Every clinic gets an AI front desk that never misses the call.
+            <h1 className="mt-6 max-w-[13ch] font-display text-5xl font-semibold leading-[0.98] tracking-[-0.06em] text-[var(--text-strong)] sm:text-6xl">
+              Every studio gets an AI front desk that never misses the call.
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-8 text-[var(--text-muted)]">
-              Clara AI centralizes appointments, patients, billing, and a voice agent in one dashboard —
-              so your front desk does less and your patients wait less.
+              Clara AI centralizes bookings, clients, deposits, and a voice agent in one dashboard —
+              so your front desk does less and your clients wait less.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <ButtonLink href="/signup" icon="calendar">
@@ -333,7 +333,7 @@ export function MarketingHomeScreen() {
             <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-[var(--border-soft)] pt-7">
               <div>
                 <div className="font-display text-2xl font-bold text-[var(--text-strong)]">120+</div>
-                <div className="text-xs text-[var(--text-muted)]">active clinics</div>
+                <div className="text-xs text-[var(--text-muted)]">active studios</div>
               </div>
               <div className="h-8 w-px bg-[var(--border-soft)]" />
               <div>
@@ -354,10 +354,10 @@ export function MarketingHomeScreen() {
         <section className="mx-auto w-full max-w-7xl px-6 pt-6 lg:px-8">
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {[
-              { value: '67%', label: 'appointment completion rate', detail: 'The booking flow is guided end to end.' },
-              { value: '-33%', label: 'no-shows after AI reminders', detail: 'Follow-ups happen before the visit slips.' },
-              { value: '13', label: 'average active patients per clinic', detail: 'Enough volume to feel the impact quickly.' },
-              { value: '6 min', label: 'average time to activate a service', detail: 'Fast setup for new clinics and service lines.' },
+              { value: '67%', label: 'booking completion rate', detail: 'The booking flow is guided end to end.' },
+              { value: '-33%', label: 'no-shows after deposit + AI reminders', detail: 'Follow-ups happen before the session slips.' },
+              { value: '13', label: 'average active clients per studio', detail: 'Enough volume to feel the impact quickly.' },
+              { value: '6 min', label: 'average time to activate a service', detail: 'Fast setup for new studios and artist rosters.' },
             ].map((stat) => (
               <SurfaceCard key={stat.label} className="p-5">
                 <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--text-muted)]">{stat.label}</div>
@@ -372,10 +372,10 @@ export function MarketingHomeScreen() {
           <div className="max-w-xl">
             <SectionEyebrow>Platform</SectionEyebrow>
             <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-[var(--text-strong)]">
-              Everything a modern clinic needs, on one dashboard
+              Everything a premium tattoo studio needs, on one dashboard
             </h2>
             <p className="mt-3 text-[var(--text-muted)]">
-              Six connected modules: what the voice agent books shows up instantly in the calendar, patient records, and billing.
+              Six connected modules: what the voice agent books shows up instantly in the calendar, client records, and billing.
             </p>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
@@ -387,12 +387,12 @@ export function MarketingHomeScreen() {
 
         <section id="programs" className="mx-auto w-full max-w-7xl px-6 pb-24 lg:px-8">
           <div className="max-w-xl">
-            <SectionEyebrow>Programs</SectionEyebrow>
+            <SectionEyebrow>Styles</SectionEyebrow>
             <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-[var(--text-strong)]">
-              What patients book through the widget
+              What clients book through the widget
             </h2>
             <p className="mt-3 text-[var(--text-muted)]">
-              Clara presents these visits by name, duration, and price — no guesswork for the patient.
+              Clara presents these services by name, duration, and price — no guesswork for the client.
             </p>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
@@ -423,7 +423,7 @@ export function MarketingHomeScreen() {
           <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="relative">
               <SurfaceCard className="relative overflow-hidden p-6">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(19,122,114,0.14),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(236,170,93,0.12),transparent_24%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(176,141,87,0.16),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(122,46,46,0.08),transparent_24%)]" />
                 <div className="relative flex min-h-[540px] flex-col gap-6">
                   <div className="flex items-center justify-between gap-4">
                     <div>
@@ -434,13 +434,13 @@ export function MarketingHomeScreen() {
                     </div>
                     <StatusBadge tone="teal">24/7</StatusBadge>
                   </div>
-                  <PhoneFrame title="Clara AI" subtitle="Patient intake live">
+                  <PhoneFrame title="Clara AI" subtitle="Client intake live">
                     <div className="space-y-3">
                       <div className="rounded-[20px] bg-[var(--brand-soft)] px-4 py-3 text-sm leading-6 text-[var(--brand-strong)]">
-                        Hello, I can help you schedule a visit, check availability, or route you to the right person.
+                        Hello, I can help you book a session, check artist availability, or route you to the right person.
                       </div>
                       <div className="grid gap-2">
-                        {['Choose a service', 'Reserve a time', 'Confirm the visit'].map((item, index) => (
+                        {['Choose a style', 'Reserve a time', 'Confirm the session'].map((item, index) => (
                           <div key={item} className="rounded-[18px] border border-[var(--border-soft)] bg-white/82 px-4 py-3">
                             <div className="flex items-center gap-3">
                               <div className="grid h-8 w-8 place-items-center rounded-full bg-[var(--brand-soft)] text-[11px] font-semibold text-[var(--brand-strong)]">
@@ -463,7 +463,7 @@ export function MarketingHomeScreen() {
                       </div>
                       <ShieldCheck className="h-5 w-5 text-[var(--brand)]" />
                     </div>
-                    <div className="ecg-line mt-4 h-10 rounded-[18px] border border-[var(--border-soft)] bg-[linear-gradient(90deg,rgba(19,122,114,0.05),rgba(19,122,114,0.16),rgba(19,122,114,0.05))]" />
+                    <div className="ecg-line mt-4 h-10 rounded-[18px] border border-[var(--border-soft)] bg-[linear-gradient(90deg,rgba(176,141,87,0.05),rgba(176,141,87,0.16),rgba(176,141,87,0.05))]" />
                   </div>
                 </div>
               </SurfaceCard>
@@ -471,7 +471,7 @@ export function MarketingHomeScreen() {
             <div>
               <SectionEyebrow>Why Clara AI</SectionEyebrow>
               <h2 className="mt-4 max-w-xl font-display text-3xl font-semibold tracking-[-0.05em] text-[var(--text-strong)] sm:text-4xl">
-                Built for clinics that cannot afford to miss a call
+                Built for studios that cannot afford to miss a call
               </h2>
               <div className="mt-7 flex flex-col gap-4">
                 {workflow.map((item) => (
@@ -490,7 +490,7 @@ export function MarketingHomeScreen() {
                 ))}
               </div>
               <div className="mt-8 flex flex-wrap gap-2">
-                <Pill tone="teal">HIPAA-ready encryption</Pill>
+                <Pill tone="teal">Bank-level data encryption</Pill>
                 <Pill tone="slate">99.9% uptime</Pill>
                 <Pill tone="slate">Dedicated support</Pill>
               </div>
@@ -501,16 +501,16 @@ export function MarketingHomeScreen() {
         <section id="portal" className="border-y border-[var(--border-soft)]" style={{ background: 'var(--panel-soft)' }}>
           <div className="mx-auto w-full max-w-7xl px-6 py-24 lg:px-8">
             <div className="max-w-xl">
-              <SectionEyebrow>Patient portal &amp; widget</SectionEyebrow>
+              <SectionEyebrow>Client portal &amp; widget</SectionEyebrow>
               <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-[var(--text-strong)]">
-                Self-service booking, payments, and support
+                Self-service booking, deposits, and support
               </h2>
             </div>
             <div className="mt-10 grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
               <SurfaceCard className="p-6">
-                <SectionEyebrow>Patient portal</SectionEyebrow>
+                <SectionEyebrow>Client portal</SectionEyebrow>
                 <h3 className="mt-3 font-display text-2xl font-bold tracking-tight text-[var(--text-strong)]">
-                  Reschedule, cancel, and pay without calling the front desk
+                  Reschedule, cancel, and pay the deposit without calling the front desk
                 </h3>
                 <div className="mt-6 space-y-4">
                   <TimelineList items={portalTimeline} />
@@ -522,7 +522,7 @@ export function MarketingHomeScreen() {
                   <div>
                     <SectionEyebrow>Widget preview</SectionEyebrow>
                     <h3 className="mt-3 font-display text-2xl font-bold tracking-tight text-[var(--text-strong)]">
-                      A booking experience patients will actually use
+                      A booking experience clients will actually use
                     </h3>
                   </div>
                   <StatusBadge tone="teal">Live</StatusBadge>
@@ -532,7 +532,7 @@ export function MarketingHomeScreen() {
                   <PhoneFrame title="Clara AI" subtitle="AI Assistant Online">
                     <div className="space-y-3">
                       <div className="border border-[var(--border-soft)] bg-[var(--brand-soft)] px-4 py-3 text-sm text-[var(--brand-strong)]">
-                        Welcome back. How can I help you book or manage an appointment today?
+                        Welcome back. How can I help you book or manage a session today?
                       </div>
                       <div className="space-y-2">
                         {services.map((service) => (
@@ -558,7 +558,7 @@ export function MarketingHomeScreen() {
         <section className="mx-auto w-full max-w-7xl px-6 py-24 lg:px-8">
           <SectionHeading
             eyebrow={<SectionEyebrow>Clients</SectionEyebrow>}
-            title="What clinics already using it say"
+            title="What studios already using it say"
             align="center"
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -572,16 +572,16 @@ export function MarketingHomeScreen() {
           <div className="mx-auto w-full max-w-7xl px-6 py-24 lg:px-8">
             <SectionHeading
               eyebrow={<SectionEyebrow>Pricing</SectionEyebrow>}
-              title="Clear plans for clinics at every stage"
-              description="The first phase focuses on the widget, clinic dashboard, patient portal, and USDC billing. Stripe can be added later if you want it."
+              title="Clear plans for studios at every stage"
+              description="The first phase focuses on the widget, studio dashboard, client portal, and deposit/USDC billing. Stripe can be added later if you want it."
               align="center"
             />
             <div className="mt-10 grid gap-px border border-[var(--border-soft)] bg-[var(--border-soft)] lg:grid-cols-4">
               {[
                 { name: 'Free', price: '$0', body: 'Sandbox, demo data, and widget preview.' },
-                { name: 'Starter', price: '$49', body: 'Single clinic with calendar, widget, and portal.' },
+                { name: 'Starter', price: '$49', body: 'Single studio with calendar, widget, and portal.' },
                 { name: 'Professional', price: '$99', body: 'Automation, analytics, billing, and AI tools.', featured: true },
-                { name: 'Enterprise', price: '$299', body: 'Multi-clinic, custom integrations, and dedicated support.' },
+                { name: 'Enterprise', price: '$299', body: 'Multi-location, custom integrations, and dedicated support.' },
               ].map((plan) => (
                 <div key={plan.name} className="relative bg-[var(--page-bg)] p-6" style={plan.featured ? { boxShadow: 'inset 0 0 0 1px var(--brand)' } : undefined}>
                   {plan.featured ? <Pill tone="teal" className="mb-3">Most popular</Pill> : null}
@@ -615,12 +615,12 @@ export function MarketingHomeScreen() {
         <section className="border-t border-[var(--border-soft)] bg-[linear-gradient(180deg,rgba(255,253,248,0.72),rgba(245,239,230,0.98))]">
           <div className="mx-auto w-full max-w-7xl px-6 py-24 lg:px-8">
             <SurfaceCard className="relative overflow-hidden px-6 py-8 sm:px-8 sm:py-10">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(19,122,114,0.12),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(236,170,93,0.12),transparent_24%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(176,141,87,0.14),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(122,46,46,0.08),transparent_24%)]" />
               <div className="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
                 <div>
                   <SectionEyebrow>Launch ready</SectionEyebrow>
                   <h2 className="mt-5 max-w-lg font-display text-4xl font-semibold tracking-[-0.05em] text-[var(--text-strong)] sm:text-5xl">
-                    Ready to bring Clara into your practice?
+                    Ready to bring Clara into your studio?
                   </h2>
                   <p className="mt-4 max-w-md text-sm leading-7 text-[var(--text-muted)]">
                     Bring the widget, portal, dashboard, and AI receptionist online in one system, configured with your real services.
@@ -635,7 +635,7 @@ export function MarketingHomeScreen() {
                   <SurfaceCard className="p-5">
                     <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--text-muted)]">Deployment</div>
                     <div className="mt-3 font-display text-3xl font-semibold tracking-[-0.04em] text-[var(--text-strong)]">14 days</div>
-                    <div className="mt-1.5 text-sm leading-6 text-[var(--text-muted)]">Typical rollout for a new clinic.</div>
+                    <div className="mt-1.5 text-sm leading-6 text-[var(--text-muted)]">Typical rollout for a new studio.</div>
                   </SurfaceCard>
                   <SurfaceCard className="p-5">
                     <div className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--text-muted)]">Support</div>
@@ -662,7 +662,7 @@ export function MarketingHomeScreen() {
           <div>
             <BrandMark compact />
             <p className="mt-3.5 max-w-[240px] text-[13px] leading-6 text-[var(--text-muted)]">
-              Calendar, patients, billing, and an AI voice agent — one dashboard for your clinic network.
+              Calendar, clients, deposits, and an AI voice agent — one dashboard for your studio.
             </p>
           </div>
           <div>
@@ -676,16 +676,8 @@ export function MarketingHomeScreen() {
           <div>
             <div className="font-display text-xs font-semibold uppercase tracking-[0.1em] text-[var(--text-muted)]">Company</div>
             <div className="mt-3.5 flex flex-col gap-2.5 text-sm">
-              <a href="#portal" className="hover:text-[var(--brand-strong)]">Patient portal</a>
+              <a href="#portal" className="hover:text-[var(--brand-strong)]">Client portal</a>
               <a href="#faq" className="hover:text-[var(--brand-strong)]">FAQ</a>
-              <a
-                href="https://claude.ai/code/artifact/f96bfb2d-e31f-476c-8e61-094744965249"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[var(--brand-strong)]"
-              >
-                User Guide
-              </a>
               <a href="/login" className="hover:text-[var(--brand-strong)]">Sign in</a>
             </div>
           </div>
@@ -698,7 +690,7 @@ export function MarketingHomeScreen() {
           </div>
         </div>
         <div className="border-t border-[var(--border-soft)] px-6 py-5 text-xs text-[var(--text-muted)] lg:px-8">
-          <div className="mx-auto w-full max-w-7xl">© {new Date().getFullYear()} Clara AI. All rights reserved.</div>
+          <div className="mx-auto w-full max-w-7xl">© {new Date().getFullYear()} Noir Ink Studio. All rights reserved.</div>
         </div>
       </footer>
     </div>
@@ -826,15 +818,15 @@ export function PortalLoginScreen() {
         <div className="relative">
           <BrandMark />
           <h1 className="mt-10 max-w-xl text-5xl font-black tracking-tight sm:text-6xl">
-            The patient portal that feels like concierge care
+            The client portal that feels like concierge care
           </h1>
           <p className="mt-5 max-w-lg text-base leading-8 text-white/76">
-            Access appointments, book a visit, and manage support requests with a secure magic-link or OTP flow.
+            Access sessions, book a slot, and manage support requests with a secure magic-link or OTP flow.
           </p>
           <div className="mt-8 space-y-3">
             <div className="rounded-[24px] border border-white/10 bg-white/6 px-5 py-4">
               <div className="text-sm font-bold">Magic link login</div>
-              <div className="text-xs text-white/70">Send a one-time login link to the patient email.</div>
+              <div className="text-xs text-white/70">Send a one-time login link to the client email.</div>
             </div>
             <div className="rounded-[24px] border border-white/10 bg-white/6 px-5 py-4">
               <div className="text-sm font-bold">OTP fallback</div>
@@ -875,18 +867,18 @@ export function WidgetDemoScreen() {
       <SectionHeading
         eyebrow={<SectionEyebrow>Widget demo</SectionEyebrow>}
         title="A live booking assistant that can sit on any website"
-        description="The embed can be an iframe or a script snippet, and the widget keeps the clinic design language intact."
+        description="The embed can be an iframe or a script snippet, and the widget keeps the studio's design language intact."
       />
       <div className="grid gap-6 xl:grid-cols-[1fr_0.96fr]">
-        <BrowserFrame title="Public clinic website" subtitle="Widget anchored at the corner of the page" accent="rose">
+        <BrowserFrame title="Public studio website" subtitle="Widget anchored at the corner of the page" accent="rose">
           <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
             <SurfaceCard className="bg-slate-950 p-7 text-white">
               <h2 className="text-5xl font-black tracking-tight sm:text-6xl">
-                Heart Care
-                <span className="block text-rose-300">You Can Trust</span>
+                Custom Ink
+                <span className="block text-rose-300">Built to Last</span>
               </h2>
               <p className="mt-4 max-w-lg text-sm leading-7 text-white/74">
-                Patients can book directly from the website while Clara captures the booking, reminders, and payment status.
+                Clients can book directly from the website while Clara captures the booking, reminders, and deposit status.
               </p>
             </SurfaceCard>
             <PhoneFrame title="Clara AI" subtitle="AI Assistant Online" accent="rose">
@@ -911,7 +903,7 @@ export function WidgetDemoScreen() {
 {`<script src="http://localhost:3000/widget-script.js"></script>
 <script>
   window.ClaraWidget.init({
-    businessSlug: "clinic-demo",
+    businessSlug: "studio-demo",
     color: "#dc2626",
     tone: "professional-and-friendly"
   });
@@ -934,42 +926,42 @@ export function SiteSlugScreen({ slug }: { slug: string }) {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
           <div className="flex items-center gap-3">
             <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-rose-500 to-rose-600 text-white">
-              <HeartPulse className="h-5 w-5" />
+              <Flame className="h-5 w-5" />
             </div>
             <div>
-              <div className="text-sm font-black tracking-tight">Dr. Jonathan M. Harrington</div>
-              <div className="text-[11px] text-white/66">Interventional Cardiologist</div>
+              <div className="text-sm font-black tracking-tight">Mara Voss</div>
+              <div className="text-[11px] text-white/66">Owner &amp; Lead Artist, Noir Ink Studio</div>
             </div>
           </div>
           <nav className="hidden gap-8 text-sm font-semibold text-white/74 lg:flex">
-            {['Home', 'About', 'Services', 'Patient Info', 'Testimonials', 'Contact'].map((item) => (
+            {['Home', 'About', 'Services', 'Portfolio', 'Testimonials', 'Contact'].map((item) => (
               <a key={item} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="transition hover:text-white">
                 {item}
               </a>
             ))}
           </nav>
           <ButtonLink href="/widget-demo" icon="calendar">
-            Book appointment
+            Book a session
           </ButtonLink>
         </div>
 
         <div className="mx-auto grid max-w-7xl gap-10 px-6 pb-16 pt-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8">
           <div className="max-w-2xl">
-            <Pill tone="rose">Board-certified interventional cardiologist</Pill>
+            <Pill tone="rose">Appointment-only custom studio</Pill>
             <h1 className="mt-6 text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
-              Advanced
-              <span className="block text-rose-300">Heart Care</span>
-              You Can Trust
+              Custom Ink,
+              <span className="block text-rose-300">Fine-Art Precision</span>
+              Built to Last
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-white/74">
-              The {slug} clinic website blends premium branding, strong patient trust signals, and the Clara booking assistant.
+              The {slug} studio website blends premium branding, strong client trust signals, and the Clara booking assistant.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href="/widget-demo" icon="calendar">
-                Schedule consultation
+                Book a consultation
               </ButtonLink>
               <ButtonLink href="/portal" variant="secondary" icon="arrow">
-                Patient portal
+                Client portal
               </ButtonLink>
             </div>
           </div>
@@ -978,20 +970,20 @@ export function SiteSlugScreen({ slug }: { slug: string }) {
             <SurfaceCard className="p-5">
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--text-muted)]">Doctor profile</div>
-                  <div className="mt-2 text-2xl font-black tracking-tight text-[var(--text-strong)]">20+ years of cardiovascular excellence</div>
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--text-muted)]">Artist profile</div>
+                  <div className="mt-2 text-2xl font-black tracking-tight text-[var(--text-strong)]">12+ years of black &amp; grey realism</div>
                 </div>
-                <StatusBadge tone="rose">Top Doctor 2022-2024</StatusBadge>
+                <StatusBadge tone="rose">Featured Artist 2024-2026</StatusBadge>
               </div>
               <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                <ValueCard label="Years" value="20+" icon={HeartPulse} tone="rose" />
-                <ValueCard label="Patients" value="12,000+" icon={Users} tone="blue" />
-                <ValueCard label="Success" value="98.6%" icon={CheckCircle2} tone="emerald" />
+                <ValueCard label="Years" value="12+" icon={Flame} tone="rose" />
+                <ValueCard label="Clients inked" value="3,400+" icon={Users} tone="blue" />
+                <ValueCard label="5-star reviews" value="98.6%" icon={CheckCircle2} tone="emerald" />
               </div>
             </SurfaceCard>
             <SurfaceCard className="p-5">
               <div className="grid gap-4 sm:grid-cols-3">
-                {['Board certified', '3x Castle Connolly', 'FACC & FSCAI'].map((item) => (
+                {['Licensed & insured', 'Featured in Inked Mag', 'Guest spots worldwide'].map((item) => (
                   <div key={item} className="rounded-2xl border border-[var(--border-soft)] bg-[var(--panel-soft)] px-4 py-3 text-sm font-semibold text-[var(--text-strong)]">
                     {item}
                   </div>
@@ -1006,10 +998,10 @@ export function SiteSlugScreen({ slug }: { slug: string }) {
         <section id="about" className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="grid gap-4 sm:grid-cols-2">
             {[
-              ['Board Certified', 'Dual certification in cardiovascular disease and interventional cardiology'],
-              ['3x Best Doctor', 'Castle Connolly best doctor distinction'],
-              ['40+ publications', 'Peer-reviewed work in cardiovascular journals'],
-              ['FACC & FSCAI', 'Leadership in interventional cardiology'],
+              ['Licensed & Insured', 'Fully licensed studio with current bloodborne pathogen certification'],
+              ['Featured Artist', 'Recognized in Inked Magazine and regional convention showcases'],
+              ['3,400+ pieces', 'Custom work across black & grey realism, fine line, and cover-ups'],
+              ['Guest Spots', 'Regularly guests at studios and conventions worldwide'],
             ].map(([title, body], index) => (
               <SurfaceCard key={title} className={cn('p-5', index === 1 ? 'bg-rose-50/70' : 'bg-white')}>
                 <div className="text-lg font-black tracking-tight text-[var(--text-strong)]">{title}</div>
@@ -1018,17 +1010,17 @@ export function SiteSlugScreen({ slug }: { slug: string }) {
             ))}
           </div>
           <SurfaceCard className="p-6">
-            <SectionEyebrow>About the doctor</SectionEyebrow>
-            <h2 className="mt-4 text-4xl font-black tracking-tight text-[var(--text-strong)]">Two decades of cardiovascular excellence</h2>
+            <SectionEyebrow>About the artist</SectionEyebrow>
+            <h2 className="mt-4 text-4xl font-black tracking-tight text-[var(--text-strong)]">Twelve years of black &amp; grey realism</h2>
             <p className="mt-4 max-w-2xl text-sm leading-8 text-[var(--text-muted)]">
-              The public site tells the clinical story, shows the specialties, and makes booking the obvious next step. It is intentionally calm, premium, and easy to scan.
+              The public site tells the artist's story, shows the specialties, and makes booking a consultation the obvious next step. It is intentionally calm, premium, and easy to scan.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <ButtonLink href="/widget-demo" icon="calendar">
                 Full biography
               </ButtonLink>
               <ButtonLink href="/portal" variant="secondary" icon="arrow">
-                Contact clinic
+                Contact studio
               </ButtonLink>
             </div>
           </SurfaceCard>
@@ -1036,9 +1028,9 @@ export function SiteSlugScreen({ slug }: { slug: string }) {
 
         <section id="services" className="space-y-6">
           <SectionHeading
-            eyebrow={<SectionEyebrow>Cardiac services</SectionEyebrow>}
-            title="Comprehensive heart care expertise"
-            description="Services are presented as simple cards with enough detail to inspire confidence and enough brevity to convert."
+            eyebrow={<SectionEyebrow>Signature styles</SectionEyebrow>}
+            title="Custom work across every scale"
+            description="Styles are presented as simple cards with enough detail to inspire confidence and enough brevity to convert."
             align="center"
           />
           {(() => {
@@ -1048,18 +1040,18 @@ export function SiteSlugScreen({ slug }: { slug: string }) {
               tone: ClinicTone
             }> = [
               {
-                title: 'Coronary Angiography',
-                body: 'Precise imaging of coronary arteries to detect blockages and guide treatment decisions.',
+                title: 'Black & Grey Realism',
+                body: 'Photorealistic portraits and nature work with deep, dimensional shading.',
                 tone: 'teal',
               },
               {
-                title: 'Angioplasty & Stenting',
-                body: 'Minimally invasive procedure to open narrowed arteries and restore blood flow.',
+                title: 'Cover-Ups & Reworks',
+                body: 'Judgment-free redesigns that fully conceal or transform an existing tattoo.',
                 tone: 'rose',
               },
               {
-                title: 'Echocardiography',
-                body: 'Advanced ultrasound imaging to evaluate heart structure, function, and valve performance.',
+                title: 'Fine Line & Minimalist',
+                body: 'Delicate single-needle linework for a clean, understated first piece or add-on.',
                 tone: 'blue',
               },
             ]
@@ -1067,7 +1059,7 @@ export function SiteSlugScreen({ slug }: { slug: string }) {
             return (
               <div className="grid gap-4 lg:grid-cols-3">
                 {services.map((item) => (
-                  <FeatureCard key={item.title} icon={HeartPulse} title={item.title} body={item.body} tone={item.tone} />
+                  <FeatureCard key={item.title} icon={Flame} title={item.title} body={item.body} tone={item.tone} />
                 ))}
               </div>
             )
@@ -1077,7 +1069,7 @@ export function SiteSlugScreen({ slug }: { slug: string }) {
         <section id="testimonials" className="space-y-6">
           <SectionHeading
             eyebrow={<SectionEyebrow>Testimonials</SectionEyebrow>}
-            title="Loved by healthcare providers"
+            title="Loved by returning clients"
             align="center"
           />
           <div className="grid gap-4 lg:grid-cols-3">
@@ -1091,9 +1083,9 @@ export function SiteSlugScreen({ slug }: { slug: string }) {
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <div className="inline-flex rounded-full bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em]">14-day free trial - no credit card</div>
-              <h2 className="mt-5 text-4xl font-black tracking-tight sm:text-5xl">Ready to transform your practice?</h2>
+              <h2 className="mt-5 text-4xl font-black tracking-tight sm:text-5xl">Ready to transform your studio?</h2>
               <p className="mt-4 max-w-2xl text-base leading-8 text-white/80">
-                Embed the widget, launch the portal, and give patients a clean digital front door without rebuilding the whole site.
+                Embed the widget, launch the portal, and give clients a clean digital front door without rebuilding the whole site.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">

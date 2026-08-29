@@ -340,7 +340,7 @@ create table if not exists patients (
   email text,
   date_of_birth date,
   notes text,
-  insurance_provider text,
+  allergy_notes text,
   source text not null default 'manual'
     check (source in ('ai_call', 'widget_chat', 'manual', 'portal', 'website_form', 'whatsapp')),
   created_at timestamptz not null default now(),

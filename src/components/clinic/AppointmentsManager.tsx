@@ -29,7 +29,7 @@ function buildSearchIndex(appointment: AppointmentWithRelations) {
     appointment.patient?.name,
     appointment.patient?.phone,
     appointment.patient?.email,
-    appointment.patient?.insuranceProvider,
+    appointment.patient?.allergyNotes,
     appointment.patient?.dateOfBirth,
     appointment.service?.name,
     appointment.notes,
@@ -200,8 +200,8 @@ export function AppointmentsManager({
                 gridTemplateColumns: 'minmax(220px, 1.3fr) minmax(180px, 1fr) minmax(180px, 1fr) minmax(180px, 1fr) minmax(150px, 0.9fr) minmax(130px, 0.85fr) 56px',
               }}
             >
-              <div>Patient</div>
-              <div>Insurance / DOB</div>
+              <div>Client</div>
+              <div>Allergies / DOB</div>
               <div>Service</div>
               <div>Scheduled</div>
               <div>Payment</div>
@@ -241,7 +241,7 @@ export function AppointmentsManager({
 
                       <div className="min-w-0">
                         <div className="truncate font-semibold text-[var(--text-strong)]">
-                          {appointment.patient?.insuranceProvider ?? 'Self pay'}
+                          {appointment.patient?.allergyNotes ?? 'No allergies noted'}
                         </div>
                         <div className="mt-1 truncate text-xs text-[var(--text-muted)]">
                           DOB: {appointment.patient?.dateOfBirth ?? 'N/A'}

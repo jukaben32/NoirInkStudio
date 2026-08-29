@@ -22,7 +22,7 @@ export async function POST(request: Request, props: { params: Promise<{ id: stri
 
   const patient = await getPortalPatientForAuthUser(supabase, user.id)
   if (!patient) {
-    return apiError('No patient record linked to this account', 404)
+    return apiError('No client record linked to this account', 404)
   }
 
   let body: unknown = {}
@@ -88,7 +88,7 @@ export async function POST(request: Request, props: { params: Promise<{ id: stri
       : Promise.resolve(),
     createNotification(admin, patient.businessId, {
       category: 'appointment',
-      title: 'Appointment cancelled by patient',
+      title: 'Appointment cancelled by client',
       message: `${patient.name} cancelled their ${serviceName} appointment.`,
       data: { appointmentId: updated.id },
     }),

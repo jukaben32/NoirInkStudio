@@ -397,7 +397,7 @@ export function WhatsappManager({
                 Connection ready
               </div>
               <p className="mt-3 text-sm leading-6 text-[var(--text-muted)]">
-                WhatsApp is linked to the clinic workspace. Keep the auto reply switch on if you want the assistant to
+                WhatsApp is linked to the studio workspace. Keep the auto reply switch on if you want the assistant to
                 answer incoming messages automatically.
               </p>
               <div className="mt-5 grid gap-3">

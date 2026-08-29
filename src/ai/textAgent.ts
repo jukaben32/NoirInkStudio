@@ -33,7 +33,7 @@ function buildWhatsappSystemPrompt(ctx: {
   services: ClinicService[]
   faqs: KnowledgeDocument[]
 }) {
-  const agentPrompt = ctx.agent.systemPrompt?.trim() || `You are ${ctx.agent.name}, the clinic WhatsApp assistant for ${ctx.business.name}.`
+  const agentPrompt = ctx.agent.systemPrompt?.trim() || `You are ${ctx.agent.name}, the tattoo studio's WhatsApp assistant for ${ctx.business.name}.`
   const clinicPrompt = buildClinicAssistantInstructions({
     business: ctx.business,
     services: ctx.services,
@@ -43,7 +43,7 @@ function buildWhatsappSystemPrompt(ctx: {
   return [
     agentPrompt,
     clinicPrompt,
-    'WhatsApp style rules: keep replies short, warm, and plain text. Avoid markdown tables and long blocks. Ask one question at a time when you need more details. Always use the clinic tools when you need services, availability, appointments, FAQ answers, or payments.',
+    'WhatsApp style rules: keep replies short, warm, and plain text. Avoid markdown tables and long blocks. Ask one question at a time when you need more details. Always use the studio tools when you need services, availability, appointments, FAQ answers, or payments.',
   ].join('\n\n')
 }
 

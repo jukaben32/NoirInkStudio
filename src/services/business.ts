@@ -239,7 +239,7 @@ export async function createBusiness(
   if (!business) throw lastError
 
   const defaultAgentName = `${toTitleCase(input.name)} Assistant`
-  const defaultPrompt = `You are Clara, the AI medical receptionist for ${input.name}. Help patients book appointments, answer FAQs, and follow the clinic scheduling rules. Be concise, empathetic, and safe.`
+  const defaultPrompt = `You are Clara, the AI studio receptionist for ${input.name}. Help clients book sessions, verify age, answer FAQs, and follow the studio's scheduling and deposit rules. Be concise, confident, and warm.`
 
   // business_subscriptions is created automatically by the
   // trg_create_default_subscription trigger right after the businesses
@@ -257,7 +257,7 @@ export async function createBusiness(
         business_id: business.id,
         name: 'Clara',
         title: defaultAgentName,
-        specialty: input.specialty ?? 'General Practice',
+        specialty: input.specialty ?? 'Custom Tattoo Work',
         voice: 'alloy',
         personality: 'friendly',
         sensitivity: 0.55,
@@ -278,11 +278,11 @@ export async function createBusiness(
   const serviceRows = [
     {
       business_id: business.id,
-      name: 'General Consultation',
-      description: 'Initial consultation for new or existing patients.',
+      name: 'Design Consultation',
+      description: 'Initial consultation for new or returning clients to plan a custom piece.',
       duration_minutes: 30,
       price_type: 'fixed',
-      price: 99,
+      price: 50,
       currency: DEFAULT_CURRENCY,
       active: true,
       color: '#0f766e',
@@ -357,23 +357,23 @@ export async function createBusiness(
       secondary_color: DEFAULT_SECONDARY_COLOR,
       font: DEFAULT_SITE_FONT,
       site_title: input.name,
-      site_description: input.description || `Book appointments with ${input.name}.`,
-      hero_headline: 'Advanced care you can trust',
-      hero_subheadline: 'Schedule appointments in seconds and let Clara handle the follow-up.',
-      cta_primary_text: 'Book Appointment',
+      site_description: input.description || `Book a session with ${input.name}.`,
+      hero_headline: 'Custom ink you can trust',
+      hero_subheadline: 'Book a session in seconds and let Clara handle the follow-up.',
+      cta_primary_text: 'Book a Session',
       cta_secondary_text: 'View Services',
-      about_title: 'About the clinic',
+      about_title: 'About the studio',
       about_story: input.description || null,
       footer_tagline: 'Powered by Clara AI',
       footer_copyright: `Copyright ${new Date().getFullYear()} ${input.name}`,
       contact_phone: input.phone ?? null,
       contact_email: input.contactEmail ?? null,
       contact_address: null,
-      contact_hours: 'Mon - Fri, 9:00 AM - 5:00 PM',
-      years_experience: 20,
-      patients_served: 12000,
+      contact_hours: 'Tue - Sat, 12:00 PM - 8:00 PM',
+      years_experience: 12,
+      patients_served: 3400,
       satisfaction_pct: 98.6,
-      trust_badges: ['Board Certified', 'Patient Centered', '24/7 AI Reception'],
+      trust_badges: ['Licensed & Insured', 'Client Centered', '24/7 AI Reception'],
       featured_service_ids: [],
     }),
   ]

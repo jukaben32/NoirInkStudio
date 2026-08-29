@@ -55,19 +55,17 @@ type ServiceFormState = {
 }
 
 const CATEGORY_ACCENTS: Record<ServiceCatalogCategoryKey, string> = {
-  'primary-preventive': '#0f766e',
-  'urgent-emergency': '#ea580c',
-  'telehealth-virtual': '#14b8a6',
-  'diagnostics-lab': '#8b5cf6',
-  'mental-health': '#db2777',
-  'womens-health': '#ec4899',
-  pediatrics: '#f59e0b',
-  dental: '#0ea5e9',
-  dermatology: '#16a34a',
-  'orthopedics-pt': '#10b981',
-  'nutrition-wellness': '#22c55e',
-  'eye-care': '#3b82f6',
-  cardiology: '#ef4444',
+  'consultation-design': '#0f766e',
+  'fine-line-minimal': '#14b8a6',
+  'blackwork-linework': '#1f2937',
+  'realism-portrait': '#8b5cf6',
+  'neo-traditional-color': '#db2777',
+  'japanese-irezumi': '#dc2626',
+  'cover-ups-reworks': '#0ea5e9',
+  'flash-walk-in': '#f59e0b',
+  'large-scale': '#7c3aed',
+  'touch-ups-aftercare': '#22c55e',
+  piercing: '#b08d57',
 }
 
 const PRICE_MODE_OPTIONS: Array<{ value: ServicePriceMode; label: string }> = [
@@ -112,7 +110,7 @@ function normalizeServiceKey(name: string) {
 
 function buildServiceInstructions(name: string, description: string) {
   const base = description.trim() || `${name} bookings`
-  return `Use this service for ${base.toLowerCase()}. Confirm the reason for visit, preferred timing, and any intake details before finalizing the booking.`
+  return `Use this service for ${base.toLowerCase()}. Confirm placement, sizing, and any consent/age-verification details before finalizing the booking.`
 }
 
 function getServicePriceMode(service: ClinicService | null): ServicePriceMode {

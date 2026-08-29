@@ -11,7 +11,7 @@ export function toPatient(row: any): Patient {
     email: row.email ?? null,
     dateOfBirth: row.date_of_birth ?? null,
     notes: row.notes ?? null,
-    insuranceProvider: row.insurance_provider ?? null,
+    allergyNotes: row.allergy_notes ?? null,
     source: row.source,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
@@ -75,7 +75,7 @@ export async function createPatient(
     phone?: string | null
     dateOfBirth?: string | null
     notes?: string | null
-    insuranceProvider?: string | null
+    allergyNotes?: string | null
     source?: Patient['source']
     authUserId?: string | null
   }
@@ -90,7 +90,7 @@ export async function createPatient(
       phone: input.phone ?? null,
       date_of_birth: input.dateOfBirth ?? null,
       notes: input.notes ?? null,
-      insurance_provider: input.insuranceProvider ?? null,
+      allergy_notes: input.allergyNotes ?? null,
       source: input.source ?? 'manual',
     })
     .select('*')
@@ -109,7 +109,7 @@ export async function updatePatient(supabase: DbClient, businessId: string, pati
       email: patch.email,
       date_of_birth: patch.dateOfBirth,
       notes: patch.notes,
-      insurance_provider: patch.insuranceProvider,
+      allergy_notes: patch.allergyNotes,
       source: patch.source,
     })
     .eq('business_id', businessId)

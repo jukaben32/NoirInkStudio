@@ -126,7 +126,7 @@ export default function SignupPage() {
       <SurfaceCard className="flex items-center justify-center p-8">
         <form onSubmit={handleSubmit} className="w-full max-w-md">
           <SectionEyebrow>Start free trial</SectionEyebrow>
-          <h2 className="mt-5 text-3xl font-black tracking-tight text-[var(--text-strong)]">Create your clinic account</h2>
+          <h2 className="mt-5 text-3xl font-black tracking-tight text-[var(--text-strong)]">Create your studio account</h2>
 
           {error && <p className="mt-4 text-sm font-medium text-[var(--coral)]">{error}</p>}
 
@@ -142,11 +142,11 @@ export default function SignupPage() {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-[var(--text-strong)]">Clinic name</label>
+              <label className="text-sm font-semibold text-[var(--text-strong)]">Studio name</label>
               <input
                 value={clinicName}
                 onChange={(e) => setClinicName(e.target.value)}
-                placeholder="Sunrise Family Clinic"
+                placeholder="Noir Ink Studio"
                 className="input-field"
                 required
               />
@@ -157,7 +157,7 @@ export default function SignupPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@clinic.com"
+                placeholder="you@studio.com"
                 className="input-field"
                 required
               />
@@ -222,7 +222,7 @@ export default function SignupPage() {
         <div className="relative">
           <BrandMark />
           <h1 className="mt-10 max-w-xl text-5xl font-black tracking-tight sm:text-6xl">
-            Launch a clinic concierge experience in days, not months.
+            Launch a studio concierge experience in days, not months.
           </h1>
           <p className="mt-5 max-w-lg text-base leading-8 text-white/76">
             Add the widget, configure AI settings, and keep every booking tied to the same source of truth.

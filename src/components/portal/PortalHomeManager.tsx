@@ -33,7 +33,7 @@ export function PortalHomeManager({
       <SurfaceCard className="p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <SectionEyebrow>Patient portal</SectionEyebrow>
+            <SectionEyebrow>Client portal</SectionEyebrow>
             <h1 className="mt-4 text-3xl font-black tracking-tight text-[var(--text-strong)]">Welcome back, {patient.name}</h1>
             <p className="mt-2 text-sm text-[var(--text-muted)]">
               Manage your {businessName} appointments, payments, and support requests.
@@ -80,7 +80,7 @@ export function PortalHomeManager({
                   </strong>
                 </div>
                 <div className="flex items-center justify-between gap-4">
-                  <span className="text-sm text-[var(--text-muted)]">Clinic</span>
+                  <span className="text-sm text-[var(--text-muted)]">Studio</span>
                   <strong className="text-sm text-[var(--text-strong)]">{businessName}</strong>
                 </div>
               </div>

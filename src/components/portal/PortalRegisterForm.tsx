@@ -26,11 +26,11 @@ export function PortalRegisterForm() {
     const normalizedName = name.trim()
 
     if (!normalizedSlug) {
-      setError('Enter the clinic slug to create your account.')
+      setError('Enter the studio slug to create your account.')
       return
     }
     if (!PORTAL_SLUG_PATTERN.test(normalizedSlug)) {
-      setError('Clinic slugs use lowercase letters, numbers, and hyphens only.')
+      setError('Studio slugs use lowercase letters, numbers, and hyphens only.')
       return
     }
     if (!normalizedName) {
@@ -99,7 +99,7 @@ export function PortalRegisterForm() {
 
   return (
     <div className="max-w-md">
-      <SectionEyebrow>Patient onboarding</SectionEyebrow>
+      <SectionEyebrow>Client onboarding</SectionEyebrow>
       <h2 className="mt-5 text-3xl font-black tracking-tight text-[var(--text-strong)]">Create your portal profile</h2>
       <p className="mt-3 text-sm leading-7 text-[var(--text-muted)]">
         We use this info to sync your appointments, reminders, and receipts. No password needed - we&apos;ll email you a secure login link.
@@ -109,11 +109,11 @@ export function PortalRegisterForm() {
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-4">
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-[var(--text-strong)]">Clinic slug</label>
+          <label className="text-sm font-semibold text-[var(--text-strong)]">Studio slug</label>
           <input
             value={businessSlug}
             onChange={(event) => setBusinessSlug(event.target.value)}
-            placeholder="clinic-demo"
+            placeholder="studio-demo"
             className="input-field"
             autoComplete="off"
             required
@@ -150,7 +150,7 @@ export function PortalRegisterForm() {
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            placeholder="patient@email.com"
+            placeholder="client@email.com"
             className="input-field"
             autoComplete="email"
             required

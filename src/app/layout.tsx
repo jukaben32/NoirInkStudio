@@ -5,10 +5,10 @@ import type { ReactNode } from 'react'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Clara AI',
-    template: '%s | Clara AI',
+    default: 'Noir Ink Studio',
+    template: '%s | Noir Ink Studio',
   },
-  description: 'AI medical receptionist and clinical operations platform for modern clinics.',
+  description: 'AI studio receptionist and booking platform for premium tattoo studios.',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

@@ -23,7 +23,7 @@ export const clinicRealtimeTools: RealtimeToolDefinition[] = [
   {
     type: 'function',
     name: 'list_clinic_services',
-    description: 'List active clinic services with durations and pricing.',
+    description: 'List the studio\'s active tattoo services (sessions, flash, cover-ups, touch-ups, design consultations) with durations and pricing.',
     parameters: {
       type: 'object',
       properties: {},
@@ -33,7 +33,7 @@ export const clinicRealtimeTools: RealtimeToolDefinition[] = [
   {
     type: 'function',
     name: 'get_available_slots',
-    description: 'Get available appointment slots for a service.',
+    description: 'Get available booking slots for a tattoo service.',
     parameters: {
       type: 'object',
       properties: {
@@ -47,7 +47,7 @@ export const clinicRealtimeTools: RealtimeToolDefinition[] = [
   {
     type: 'function',
     name: 'find_or_create_patient',
-    description: 'Find an existing patient or create a new patient record.',
+    description: 'Find an existing client or create a new client record.',
     parameters: {
       type: 'object',
       properties: {
@@ -62,7 +62,7 @@ export const clinicRealtimeTools: RealtimeToolDefinition[] = [
   {
     type: 'function',
     name: 'create_appointment',
-    description: 'Create a clinic appointment after confirming service and time.',
+    description: 'Book a tattoo appointment after confirming the service, artist availability, and time. A booking deposit may be required before the slot is held.',
     parameters: {
       type: 'object',
       properties: {
@@ -83,7 +83,7 @@ export const clinicRealtimeTools: RealtimeToolDefinition[] = [
     type: 'function',
     name: 'confirm_appointment',
     description:
-      'Mark an appointment as confirmed. Requires the phone number or email on file for that appointment to verify the caller.',
+      'Mark a tattoo appointment as confirmed. Requires the phone number or email on file for that appointment to verify the caller.',
     parameters: {
       type: 'object',
       properties: {
@@ -99,7 +99,7 @@ export const clinicRealtimeTools: RealtimeToolDefinition[] = [
     type: 'function',
     name: 'reschedule_appointment',
     description:
-      'Reschedule an appointment to a new time. Requires the phone number or email on file for that appointment to verify the caller.',
+      'Reschedule a tattoo appointment to a new time. Requires the phone number or email on file for that appointment to verify the caller.',
     parameters: {
       type: 'object',
       properties: {
@@ -116,7 +116,7 @@ export const clinicRealtimeTools: RealtimeToolDefinition[] = [
     type: 'function',
     name: 'cancel_appointment',
     description:
-      'Cancel an appointment and store the reason. Requires the phone number or email on file for that appointment to verify the caller.',
+      'Cancel a tattoo appointment and store the reason. Requires the phone number or email on file for that appointment to verify the caller. Remind the caller of the studio\'s deposit/cancellation policy if relevant.',
     parameters: {
       type: 'object',
       properties: {
@@ -132,7 +132,7 @@ export const clinicRealtimeTools: RealtimeToolDefinition[] = [
   {
     type: 'function',
     name: 'search_faqs',
-    description: 'Search the clinic knowledge base for an answer.',
+    description: 'Search the studio\'s knowledge base for an answer (aftercare, pricing policy, hygiene standards, what to expect, etc.).',
     parameters: {
       type: 'object',
       properties: {
@@ -145,7 +145,7 @@ export const clinicRealtimeTools: RealtimeToolDefinition[] = [
   {
     type: 'function',
     name: 'create_support_ticket',
-    description: 'Open a support ticket for a patient or staff follow-up.',
+    description: 'Open a support ticket for a client or staff follow-up.',
     parameters: {
       type: 'object',
       properties: {
@@ -183,7 +183,7 @@ export const clinicRealtimeTools: RealtimeToolDefinition[] = [
   {
     type: 'function',
     name: 'send_appointment_email',
-    description: 'Send a booking confirmation or appointment status email to the patient.',
+    description: 'Send a booking confirmation or appointment status email to the client.',
     parameters: {
       type: 'object',
       properties: {
@@ -214,16 +214,17 @@ export function buildClinicAssistantInstructions(opts: {
     .join('\n')
 
   return [
-    `You are Clara, the AI medical receptionist for ${opts.business.name}.`,
-    `Be warm, concise, and calm. Do not diagnose or provide emergency medical advice.`,
-    `Your job is to help patients book, reschedule, cancel, and understand clinic services.`,
-    `Always ask for the minimum required patient details and confirm date and time in the clinic timezone.`,
+    `You are Clara, the AI studio receptionist for ${opts.business.name}, a premium tattoo studio.`,
+    `Be warm, confident, and concise — the tone of a knowledgeable front-desk artist-manager, not a call center script. Never diagnose skin conditions or give medical advice; for anything health-related beyond basic aftercare, direct the caller to their doctor.`,
+    `Your job is to help clients book, reschedule, cancel, and understand tattoo services, pricing, and artist availability.`,
+    `Every new client must confirm they are 18 or older (or have a valid guardian consent process per local law) before a session is booked — ask this directly and note the answer.`,
+    `Always ask for the minimum required client details and confirm date and time in the studio's timezone. Mention the booking deposit policy when relevant — most sessions require a non-refundable deposit to hold the slot.`,
     `Before confirming, rescheduling, cancelling, or recording a payment on an EXISTING appointment, always ask the caller to state the phone number or email on file for that booking and pass it as patientEmail/patientPhone — this verifies you are speaking with the person who made the booking.`,
-    `Clinic timezone: ${opts.timezone || opts.business.timezone || 'America/New_York'}.`,
-    `Clinic services:\n${serviceList || '- No active services configured yet.'}`,
+    `Studio timezone: ${opts.timezone || opts.business.timezone || 'America/New_York'}.`,
+    `Studio services:\n${serviceList || '- No active services configured yet.'}`,
     `FAQs:\n${faqList || '- No FAQs configured yet.'}`,
-    `If symptoms sound urgent, advise the caller to seek emergency care or contact local emergency services immediately.`,
-    `If a human handoff is needed, summarize the request clearly and mark the conversation as escalated.`,
+    `If the caller describes a healed tattoo showing signs of infection (spreading redness, fever, pus), advise them to seek medical care promptly — this is outside what the studio can address.`,
+    `If a human handoff is needed (custom design consultations, complex cover-ups, pricing negotiation), summarize the request clearly and mark the conversation as escalated.`,
   ].join('\n\n')
 }
 
@@ -305,9 +306,9 @@ async function sendAppointmentEmailForTool(supabase: DbClient, appointmentId: st
 
   const appointment: any = appointmentRow
   const patientEmail = appointment.patients?.email
-  if (!patientEmail) throw new Error('Patient email not found')
+  if (!patientEmail) throw new Error('Client email not found')
 
-  const businessName = appointment.businesses?.name || 'Clinic'
+  const businessName = appointment.businesses?.name || 'Tattoo Studio'
   const serviceName = appointment.clinic_services?.name || 'Appointment'
   const scheduledAt = new Date(appointment.scheduled_at).toLocaleString('en-US')
   const portalUrl = `${process.env.NEXT_PUBLIC_APP_URL || ''}/portal`
@@ -315,14 +316,14 @@ async function sendAppointmentEmailForTool(supabase: DbClient, appointmentId: st
   const html =
     type === 'confirmation'
       ? buildAppointmentConfirmationEmail({
-          patientName: appointment.patients?.name || 'Patient',
+          patientName: appointment.patients?.name || 'Client',
           businessName,
           serviceName,
           scheduledAt,
           portalUrl,
         })
       : buildAppointmentStatusEmail({
-          patientName: appointment.patients?.name || 'Patient',
+          patientName: appointment.patients?.name || 'Client',
           businessName,
           serviceName,
           scheduledAt,

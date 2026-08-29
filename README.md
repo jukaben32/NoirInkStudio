@@ -1,104 +1,35 @@
-# AI Voice Agents for Medical & Healthcare Industry Management SaaS
+# Noir Ink Studio
 
-![alt text](https://www.daulathussain.com/wp-content/uploads/2026/05/Build-Deploy-AI-Voice-Agents-for-Medical-Healthcare-Industry-Management-SaaS-Next.js-LLM-Supabase.jpg)
+Multi-tenant SaaS platform for premium tattoo studios — AI voice/text
+receptionist, booking calendar, client CRM, deposit billing, a public
+studio website builder, and a WhatsApp integration, all in one dashboard.
 
-- [Final Source Code](https://youtu.be/JpoUaJTTQKI?si=Yz4LNfuTX7vs1r64)
+Forked from a Next.js + Supabase + Claude AI starter and fully adapted to
+the tattoo industry: services (consultations, sessions, flash, cover-ups,
+piercing), client records (with allergy notes and age verification instead
+of medical fields), studio-branded AI agent personas, and a Black & Beige
+Fine-Art Gallery visual direction.
 
-#### Setup Video
+## Tech Stack
 
-- [Final Code Setup video](https://youtu.be/UiGiVh_dO8o?si=PLIQ6n6oDlwd3HBS)
-
-## Project Overview
-
-Build & Deploy AI Voice Agents for Medical & Healthcare Industry Management SaaS | Next.js, LLM & Supabase
-
-In this full-stack AI SaaS tutorial, you’ll learn how to build and deploy powerful Healthcare AI Voice Agents and Medical Industry Management SaaS using Next.js, LLMs, and Supabase.
-
-We’ll create AI-powered medical voice assistants designed for healthcare businesses, including clinics, hospitals, medical centers, telehealth services, and patient management systems.
-
-## These Healthcare AI Agents can:
-
-- Manage patient appointments & scheduling
-- Handle medical inquiries & patient support
-- Automate healthcare communication workflows
-- Assist with patient follow-ups & reminders
-- Improve medical office management & operations
-- Support healthcare customer service automation
-- In this project, you’ll learn how to:
-- Build Healthcare AI Voice Agents with modern LLMs
-- Create real-time medical voice conversations
-- Build a Healthcare Management SaaS platform
-- Manage patients, appointments, and medical workflows
-- Integrate Supabase for authentication & database management
-- Build scalable medical industry SaaS applications
-- Create reusable healthcare AI systems
-- Build a modern frontend with Next.js
-- Handle AI prompts, automation, and healthcare business logic
-
-This tutorial is perfect for developers, SaaS founders, freelancers, and anyone interested in building AI for healthcare, medical automation systems, and healthcare management software.
-
-## 💻 Tech Stack:
-
-- Next.js
-- Supabase
-- Claude AI
+- Next.js (App Router)
+- Supabase (Postgres + Auth + RLS)
+- OpenAI Realtime API (voice agent) + Chat Completions (WhatsApp text agent)
 - Tailwind CSS
-- JavaScript
-- Full-Stack SaaS Architecture
+- Stripe (billing) / optional USDC on Polygon (booking deposits)
+- Resend (transactional email)
 
-🚀 By the end of this video, you’ll have a fully functional Healthcare & Medical Industry Management AI SaaS Platform ready for deployment.
+## Local Development
 
-## Instruction
+1. `npm install`
+2. Copy `.env.example` to `.env.local` and fill in the required keys
+   (Supabase project URL/keys at minimum; OpenAI key to enable the AI agent).
+3. Apply `supabase/schema.sql` to your Supabase project.
+4. `npm run dev`
 
-Kindly follow the following Instructions to run the project in your system and install the necessary requirements
+## Scripts
 
-#### Deploying Blockchain & Dapp
-
-```
-  WATCH: Digital Ocean
-  Get : $200 Free Credit
-  URL: https://m.do.co/c/fbe1551c5ae1
-```
-
-```
-  WATCH: Hostinger
-  Get : Discount 75%
-  URL: https://www.hostg.xyz/aff_c?offer_id=6&aff_id=139422
-```
-
-### MULTI-CURRENCY ICO DAPP
-
-```
-  PROJECT: MULTI-CURRENCY ICO DAPP
-  Code: https://www.theblockchaincoders.com/sourceCode/multi-currency-ico-dapp-using-next.js-solidity-and-wagmi
-  VIDEO: https://youtu.be/j8NO8ea5zVo?si=jCmvfXmpmefwjhO5
-```
-
-#### Install Vs Code Editor
-
-```
-  GET: VsCode Editor
-  URL: https://code.visualstudio.com/download
-```
-
-#### NodeJs & NPM Version
-
-```
-  NodeJs: 20 / LATEST
-  URL: https://nodejs.org/en/download
-  Video: https://youtu.be/PIR0oBVowXU?si=9eNdR29u37F2ujJJ
-```
-
-All you need to follow the complete project and follow the instructions which are explained in the tutorial by Daulat
-
-## Important Links
-
-- [Get Pro Blockchain Developer Course](https://www.theblockchaincoders.com/pro-nft-marketplace)
-- [Support Creator](https://bit.ly/Support-Creator)
-- [All Projects Source Code](https://www.theblockchaincoders.com/SourceCode)
-
-## Authors
-
-- [@theblockchaincoders.com](https://www.theblockchaincoders.com/)
-- [@consultancy](https://www.theblockchaincoders.com/consultancy)
-- [@youtube](https://www.youtube.com/@daulathussain)
+- `npm run dev` — start the local dev server
+- `npm run build` — production build
+- `npm run type-check` — `tsc --noEmit`
+- `npm run lint` — ESLint

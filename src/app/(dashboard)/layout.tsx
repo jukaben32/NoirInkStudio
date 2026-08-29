@@ -48,7 +48,7 @@ export default async function DashboardLayout({ children }: { children: ReactNod
     business = await getBusinessForUser(supabase, user.id)
   } catch (err) {
     console.error('Failed to look up the business for this user:', err)
-    return <ErrorScreen title="We couldn't load your clinic" body="Please try signing in again, or contact support if this keeps happening." detail={getErrorMessage(err)} />
+    return <ErrorScreen title="We couldn't load your studio" body="Please try signing in again, or contact support if this keeps happening." detail={getErrorMessage(err)} />
   }
 
   // Signup can't create the clinic itself when Supabase requires email
@@ -82,7 +82,7 @@ export default async function DashboardLayout({ children }: { children: ReactNod
       })
     } catch (err) {
       console.error('Failed to auto-create business on first login:', err)
-      return <ErrorScreen title="We couldn't set up your clinic" body="Something went wrong creating your clinic account. Please try signing in again, or contact support if this keeps happening." detail={getErrorMessage(err)} />
+      return <ErrorScreen title="We couldn't set up your studio" body="Something went wrong creating your studio account. Please try signing in again, or contact support if this keeps happening." detail={getErrorMessage(err)} />
     }
   }
 

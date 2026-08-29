@@ -124,7 +124,7 @@ export interface Patient {
   email: string | null
   dateOfBirth: string | null
   notes: string | null
-  insuranceProvider: string | null
+  allergyNotes: string | null
   source: 'ai_call' | 'widget_chat' | 'manual' | 'portal' | 'website_form' | 'whatsapp'
   createdAt: string
   updatedAt: string

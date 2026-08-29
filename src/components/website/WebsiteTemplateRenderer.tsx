@@ -9,16 +9,16 @@ import {
   ChevronDown,
   Clock3,
   FileText,
-  HeartPulse,
+  Flame,
   Home,
   Key,
   Loader2,
   Mail,
   MapPin,
+  PenTool,
   Phone,
   Send,
   Star,
-  Stethoscope,
   UsersRound,
   ClipboardList,
   TrendingUp,
@@ -74,10 +74,10 @@ const FONT_LINKS: Record<string, string> = {
 }
 
 const DEFAULT_HIGHLIGHTS = [
-  'Same-week appointments',
-  'Telehealth available',
-  'Insurance-friendly care',
-  'Compassionate follow-up',
+  'Same-week consultations',
+  'Custom design process',
+  'Licensed & insured artists',
+  'Aftercare follow-up included',
 ]
 
 const SERVICE_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -225,13 +225,13 @@ export function WebsiteTemplateRenderer({
                 className="grid h-10 w-10 place-items-center rounded-2xl text-white shadow-lg"
                 style={{ background: `linear-gradient(135deg, ${website.primaryColor}, ${website.secondaryColor})` }}
               >
-                <HeartPulse className="h-5 w-5" />
+                <Flame className="h-5 w-5" />
               </span>
             )}
             <div>
               <p className="text-sm font-extrabold tracking-[-0.03em]">{website.siteTitle || businessName}</p>
               <p className="text-[11px] uppercase tracking-[0.26em]" style={{ color: style.subtext }}>
-                {website.aboutTitle || 'Healthcare site'}
+                {website.aboutTitle || 'Tattoo studio site'}
               </p>
             </div>
           </div>
@@ -300,7 +300,7 @@ export function WebsiteTemplateRenderer({
 
               <div className="mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
                 <StatCard label="Years experience" value={String(website.yearsExperience ?? 0)} accent={website.primaryColor} />
-                <StatCard label="Patients served" value={String(website.patientsServed ?? 0)} accent={website.primaryColor} />
+                <StatCard label="Clients served" value={String(website.patientsServed ?? 0)} accent={website.primaryColor} />
                 <StatCard
                   label="Satisfaction"
                   value={website.satisfactionPct != null ? `${Math.round(website.satisfactionPct)}%` : '—'}
@@ -319,7 +319,7 @@ export function WebsiteTemplateRenderer({
                   <div>
                     <p className="text-sm font-bold">Overview</p>
                     <p className="text-xs" style={{ color: style.subtext }}>
-                      Practice performance at a glance
+                      Studio performance at a glance
                     </p>
                   </div>
                   <span
@@ -340,7 +340,7 @@ export function WebsiteTemplateRenderer({
                         <img src={website.heroImageUrl} alt="" className="h-full w-full rounded-[20px] object-cover" />
                       ) : isEditorPreview ? (
                         <div>
-                          <Stethoscope className="mx-auto h-10 w-10 opacity-40" />
+                          <PenTool className="mx-auto h-10 w-10 opacity-40" />
                           <p className="mt-3 text-sm" style={{ color: style.subtext }}>
                             Upload a hero image in the editor
                           </p>
@@ -370,8 +370,8 @@ export function WebsiteTemplateRenderer({
           <SectionBlock id="services">
             <SectionTitle
               eyebrow="Services"
-              title="How we help patients"
-              description="The same clean, high-trust layout the reference uses, but tailored to clinical care and patient booking."
+              title="How we help clients"
+              description="The same clean, high-trust layout the reference uses, but tailored to studio bookings and custom work."
             />
             <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {services.map((service) => {
@@ -419,7 +419,7 @@ export function WebsiteTemplateRenderer({
             <div>
               <SectionTitle
                 eyebrow="About"
-                title={website.aboutTitle || 'About the clinic'}
+                title={website.aboutTitle || 'About the studio'}
                 description={website.aboutStory || website.siteDescription}
               />
               <div className="mt-8 space-y-3">
@@ -455,8 +455,8 @@ export function WebsiteTemplateRenderer({
           <SectionBlock id="team">
             <SectionTitle
               eyebrow="Team"
-              title="Meet the people behind the care"
-              description="A polished staff section makes the clinic feel established and trustworthy."
+              title="Meet the artists behind the work"
+              description="A polished staff section makes the studio feel established and trustworthy."
               center
             />
             <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -492,7 +492,7 @@ export function WebsiteTemplateRenderer({
           <SectionBlock bg={style.cardBg}>
             <SectionTitle
               eyebrow="Testimonials"
-              title="What patients say"
+              title="What clients say"
               description="Short quotes and ratings add trust, just like in the reference design."
               center
             />
@@ -568,7 +568,7 @@ export function WebsiteTemplateRenderer({
           <SectionTitle
             eyebrow="Contact"
             title="Get in touch"
-            description="Send a message and the clinic follows up directly - no phone tag required."
+            description="Send a message and the studio follows up directly - no phone tag required."
             center
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
@@ -616,7 +616,7 @@ export function WebsiteTemplateRenderer({
             </div>
           ) : null}
           <div className="flex flex-col gap-2">
-            <p className="font-semibold">{website.footerTagline || 'Your trusted healthcare partner.'}</p>
+            <p className="font-semibold">{website.footerTagline || 'Your trusted ink partner.'}</p>
             <p style={{ color: style.subtext }}>{website.footerCopyright || `Copyright ${new Date().getFullYear()} ${businessName}`}</p>
           </div>
         </div>

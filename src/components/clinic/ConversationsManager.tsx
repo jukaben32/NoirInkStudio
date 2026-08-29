@@ -128,7 +128,7 @@ function buildSearchText(patient: Patient | null | undefined, conversation: Conv
     [
       patient?.name ?? 'unknown caller',
       patient?.phone ?? '',
-      patient?.insuranceProvider ?? '',
+      patient?.allergyNotes ?? '',
       conversation.transcriptSummary ?? '',
       conversation.status,
       conversation.outcome ?? '',
@@ -406,10 +406,10 @@ export function ConversationsManager({
                       <div className="min-w-0">
                         <div className="truncate text-sm font-semibold text-[var(--text-strong)]">{patientName}</div>
                         <div className="truncate text-xs text-[var(--text-muted)]">{patientPhone}</div>
-                        {patient?.dateOfBirth || patient?.insuranceProvider ? (
+                        {patient?.dateOfBirth || patient?.allergyNotes ? (
                           <div className="mt-1 truncate text-[11px] text-[var(--text-muted)]">
                             {patient?.dateOfBirth ? `DOB: ${patient.dateOfBirth}` : 'DOB: -'}
-                            {patient?.insuranceProvider ? ` - ${patient.insuranceProvider}` : ''}
+                            {patient?.allergyNotes ? ` - ${patient.allergyNotes}` : ''}
                           </div>
                         ) : null}
                       </div>

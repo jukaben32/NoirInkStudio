@@ -34,7 +34,7 @@ export default async function WhatsappPage() {
       <SectionHeading
         eyebrow={<SectionEyebrow>Setup</SectionEyebrow>}
         title="WhatsApp"
-        description="Connect Evolution API so the same clinic assistant can answer WhatsApp, qualify patients and book appointments."
+        description="Connect Evolution API so the same studio assistant can answer WhatsApp, qualify clients and book sessions."
       />
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1.18fr)_minmax(320px,0.82fr)]">

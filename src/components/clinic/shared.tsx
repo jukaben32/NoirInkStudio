@@ -7,6 +7,7 @@ import {
   CheckCircle2,
   ChevronRight,
   Clock3,
+  PenTool,
   Sparkles,
 } from 'lucide-react'
 
@@ -72,19 +73,19 @@ export function BrandMark({
         )}
         style={{
           background: 'linear-gradient(135deg, var(--brand), var(--brand-strong))',
-          boxShadow: '0 18px 36px -24px rgba(19, 122, 114, 0.7)',
+          boxShadow: '0 18px 36px -24px rgba(138, 107, 62, 0.7)',
         }}
       >
         <span className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.36),transparent_55%)]" />
-        <Sparkles className="relative h-4 w-4" />
+        <PenTool className="relative h-4 w-4" />
       </div>
       {!compact ? (
         <div className="leading-tight">
           <div className="font-display text-[15px] font-semibold tracking-[-0.03em] text-[var(--text-strong)]">
-            Clara AI
+            Noir Ink Studio
           </div>
           <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
-            clinical reception stack
+            studio booking &amp; AI reception
           </div>
         </div>
       ) : null}

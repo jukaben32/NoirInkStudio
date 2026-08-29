@@ -470,7 +470,7 @@ export function DashboardOverviewManager({
               const tone = getAppointmentTone(appointment.status)
               const patientDetails = [
                 appointment.patient?.dateOfBirth ? `DOB: ${appointment.patient.dateOfBirth}` : null,
-                appointment.patient?.insuranceProvider ?? 'No Insurance',
+                appointment.patient?.allergyNotes ?? 'No allergies noted',
               ]
                 .filter(Boolean)
                 .join(' - ')

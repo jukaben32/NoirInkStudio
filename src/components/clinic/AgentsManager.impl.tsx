@@ -861,14 +861,14 @@ export function AgentsManager({
     },
     {
       all: AGENT_TEMPLATES.length,
-      'general-practice': 0,
-      'mental-health': 0,
-      pediatrics: 0,
-      'urgent-care': 0,
-      dental: 0,
-      telehealth: 0,
-      specialist: 0,
-      'chronic-care': 0,
+      'front-desk': 0,
+      'flash-walk-in': 0,
+      'custom-design': 0,
+      'cover-ups': 0,
+      'large-scale': 0,
+      piercing: 0,
+      aftercare: 0,
+      'guest-artist': 0,
     },
   )
 

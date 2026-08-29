@@ -163,7 +163,7 @@ export function PortalSupportManager({
       <SurfaceCard className="flex min-h-[560px] flex-col overflow-hidden p-0">
         {!selected ? (
           <div className="grid flex-1 place-items-center px-6 py-16 text-center text-sm text-[var(--text-muted)]">
-            Select a ticket, or open a new one to get help from the clinic.
+            Select a ticket, or open a new one to get help from the studio.
           </div>
         ) : (
           <>
@@ -187,7 +187,7 @@ export function PortalSupportManager({
                 </div>
               ) : messages.length === 0 ? (
                 <div className="rounded-[24px] border border-dashed border-[var(--border-soft)] bg-[var(--panel-soft)] px-4 py-10 text-center text-sm text-[var(--text-muted)]">
-                  No replies yet. The clinic will respond here.
+                  No replies yet. The studio will respond here.
                 </div>
               ) : (
                 <div className="space-y-3">
@@ -213,7 +213,7 @@ export function PortalSupportManager({
                           )}
                         >
                           <div className={cn('mb-1 text-[10px] font-semibold uppercase tracking-[0.2em]', isPatient ? 'text-white/70' : 'text-[var(--text-muted)]')}>
-                            {isPatient ? 'You' : 'Clinic'} - {formatTime(message.createdAt, timezone)}
+                            {isPatient ? 'You' : 'Studio'} - {formatTime(message.createdAt, timezone)}
                           </div>
                           {message.content}
                         </div>
@@ -315,7 +315,7 @@ function NewTicketModal({
     <Modal
       open={open}
       title="Open a support ticket"
-      description="Tell the clinic what you need. They'll reply here."
+      description="Tell the studio what you need. They'll reply here."
       onClose={() => {
         reset()
         onClose()
@@ -333,7 +333,7 @@ function NewTicketModal({
             onChange={(event) => setDescription(event.target.value)}
             rows={4}
             className="input-field w-full"
-            placeholder="Add any context that will help the clinic respond..."
+            placeholder="Add any context that will help the studio respond..."
           />
         </div>
         {error ? <p className="text-sm font-medium text-[var(--coral)]">{error}</p> : null}
